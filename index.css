@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-blue: #3b82f6;
+  --color-brand-violet: #8b5cf6;
+}
+
+@layer base {
+  body {
+    @apply font-sans overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-violet));
+  }
+  .gradient-dark {
+    background: linear-gradient(135deg, #1e3a8a, #4c1d95);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-violet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+  }
+  .pattern-dots {
+    background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .glow {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
